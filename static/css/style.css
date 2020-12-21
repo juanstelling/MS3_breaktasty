@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap: 100, 200, 300, 400, 500, 600, 700, 800, 900');
+
+/*-------------------------------------Special paddings/margins/text */ 
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family:  'Bebas Neue', cursive;
+    color: #000;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+h4 {
+    font-size: 30px;  
+}
+
+p {
+    font-family: 'Raleway', sans-serif;
+}
+
+.social-icons {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+/*------------------------------------- Heading */
+
+.nav-socials {
+    background-color: #1b1b1b;
+    margin-bottom: 0px;
+}
+
+nav .brand-logo {
+    margin-left: 20px;
+    color: #000;
+    font-size: 60px;
+}
+
+nav ul a {
+    color: #000;
+    font-size: 25px;
+}
+
+.dropdown-content li a {
+    color: #000;
+    font-size: 20px;
+}
+
+.nav-wrapper i {
+    color: #000;
+}
+
+/*------------------------------------- Mobile heading  */
+
+.sidenav {
+    font-family: 'Bebas Neue', cursive;
+}
+
+.sidenav li a {
+    color: #000;
+    font-size: 20px;
+}
+
+/*------------------------------------- Footer */
+
+.page-footer .footer-copyright {
+    background-color: #1b1b1b;
+}
+
+
+
+
