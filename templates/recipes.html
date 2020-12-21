@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breaktasty</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+    <h2>I'm extending the base template</h2>
     {% for recipe in recipes %}
         {{ recipe.title }}<br>
         {{ recipe.category_name }}<br>
@@ -15,6 +11,6 @@
         {{ recipe.instructions}}<br>
         {{ recipe.tips}}<br>
     {% endfor %}
+
+{% endblock %}
     
-</body>
-</html>
