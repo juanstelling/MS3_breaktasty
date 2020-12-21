@@ -10,6 +10,7 @@
         {% block styles %}
         {% endblock %}
         <title>BREAKTASTY</title>
+        <link rel="shortcut icon" type="image/png" href="static/images/logo/logo-bt.png">
     </head>
     <body>
 
@@ -24,7 +25,6 @@
             </div>
             </div>
             
-
             <!-- Main navbar -->
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
@@ -34,10 +34,10 @@
             </ul>
             <nav>
                 <div class="nav-wrapper white">
-                    <a href="#!" class="brand-logo">Breaktasty</a>
+                    <a href="{{ url_for('index') }}" class="brand-logo">Breaktasty</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
                         <!-- Dropdown Trigger -->
                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipe</a></li>
                         <li><a href="#">Profile</a></li>
@@ -55,7 +55,7 @@
             </ul>
             <ul class="sidenav" id="mobile-demo">
                 <li><h4 class="center-align black-text mob-nav">Breaktasty.</h4></li>
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recipe</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Favorites</a></li>

@@ -42,7 +42,7 @@ p {
 nav .brand-logo {
     margin-left: 20px;
     color: #000;
-    font-size: 60px;
+    font-size: 50px;
 }
 
 nav ul a {
@@ -74,6 +74,29 @@ nav ul a {
 
 .page-footer .footer-copyright {
     background-color: #1b1b1b;
+}
+
+/*------------------------------------- Homepage */
+
+#introduction {
+    background: url("https://images.pexels.com/photos/4725659/pexels-photo-4725659.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=500&w=1260");
+    height: 500px;
+    width: 100%;
+    padding: 15px;
+}
+
+#home-quote {
+    padding-top: 20%;
+    margin-bottom: 0;
+}
+
+#home-text {
+    margin-top: 0;
+}
+
+#cta-signup {
+    background-color: #000;
+    color: #fff;
 }
 
 
