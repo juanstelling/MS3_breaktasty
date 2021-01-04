@@ -1,60 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Title -->
-<div class="row">
-    <div class="class">
+    <!-- Title -->
+    <div class="row">
         <h3 class="center-align">Login or signup</h3>
         <hr class="blackline">
     </div>
-</div>
 
-<!-- Introduction -->
-<div class="row">
-    <div class="container">
-        <h4 class="center-align">Login or make a new account</h4>
-        <p class="center-align">
-            Use MYBREAKTASTY to share, edit and delete your own recipes. You can
-            also save recipes, by placing them in favorites.
-        </p>
+    <!-- Introduction -->
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <h4 class="center-align">Login or make a new account</h4>
+            <p class="center-align">
+                Use MYBREAKTASTY to share, edit and delete your own recipes. You can
+                also save recipes, by placing them in favorites.
+            </p>
+        </div>
     </div>
-</div>
 
-<!-- Registration form -->
-<div class="row">
-    <form class="col s6 m4 offset-m2" method="POST" action="{{ url_for('login') }}">
-        <h4>Already have an existing account?</h4>
-        <!-- Username -->
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="username" name="username" type="text" minlength="5" maxlength="20"
-                    pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
-                <label for="username">username</label>
-                <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+    <!-- Registration form -->
+    <div class="row">
+        <form class="col s6 m4 offset-m2" method="POST" action="{{ url_for('login') }}">
+            <h4>Already have an existing account?</h4>
+            <!-- Username -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" name="username" type="text" minlength="5" maxlength="20"
+                        pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
+                    <label for="username">username</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                </div>
             </div>
-        </div>
-        <!--Password -->
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="password" name="password" type="password" minlength="5" maxlength="20"
-                    pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
-                <label for="password">Password</label>
-                <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+            <!--Password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" minlength="5" maxlength="20"
+                        pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
+                    <label for="password">Password</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                </div>
             </div>
-        </div>
-        <!-- Submit button -->
-        <div class="row">
-            <button type="submit" class="col s6 custom-btn">Login</button>
-        </div>
-    </form>
-    <!-- Signup section -->
-    <div class="col s6 m4">
-        <div class="vertical-line">
-            <h4>Don't have an account yet?</h4>
-            <a class = "col s4 custom-btn center-align" href="{{ url_for('signup') }}">Signup</a>
-        </div>
+            <!-- Submit button -->
+            <div class="row">
+                <button type="submit" class="col s6 custom-btn">Login</button>
+            </div>
+        </form>
+        <!-- Signup section -->
+        <div class="col s6 m4">
+            <div class="vertical-line">
+                <h4>Don't have an account yet?</h4>
+                <a class = "col s4 custom-btn center-align" href="{{ url_for('signup') }}">Signup</a>
+            </div>
 
+        </div>
     </div>
-</div>
 
 {% endblock %}

@@ -38,7 +38,7 @@ p {
     line-height: 2;
 }
 
-/*------------------------------------- Lines/ buttons */
+/*------------------------------------- Special Lines/ buttons/ rows */
 
 .blackline {
     width: 70%;
@@ -65,6 +65,12 @@ p {
     border: 5px;
     color: #fff;
     background-color: #000;
+}
+
+#black-row {
+    color: #fff;
+    background-color: #000;
+    padding: 10px;
 }
 
 /*------------------------------------- Heading */
