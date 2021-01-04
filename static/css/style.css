@@ -32,6 +32,12 @@ p {
     font-size: 18px;
 }
 
+.flashes h4 {
+    background-color: #000;
+    color: #fff;
+    line-height: 2;
+}
+
 /*------------------------------------- Lines/ buttons */
 
 .blackline {

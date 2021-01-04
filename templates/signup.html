@@ -15,28 +15,36 @@
             <!-- Email -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" name="email" type="email" class="validate">
+                    <input id="email" name="email" type="email" class="validate" required>
                     <label for="email">Email</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
                 </div>
             </div>
             <!-- Username -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" name="username" type="text" class="validate">
+                    <input id="username" name="username" type="text" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
                     <label for="username">username</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
                 </div>
             </div>
             <!--Password -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" name="password" type="password" class="validate">
+                    <input id="password" name="password" type="password" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
                     <label for="password">Password</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
                 </div>
             </div>
+            <!-- Terms and conditions-->
             <div class="row">
-                <button type="submit" class="col s4">Signup</button>
+                <label>
+                    <input type="checkbox" required/>
+                    <span>By registering I agree to the terms and conditions</span>
+                </label>
+            </div>
+            <!-- Terms and conditions-->
+            <div class="row">
+                <button type="submit" class="col s4">signup</button>
             </div>
 
         </form>
