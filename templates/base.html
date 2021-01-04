@@ -28,7 +28,7 @@
             <!-- Main navbar -->
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="#!">one</a></li>
+                <li><a href="{{ url_for('get_recipes') }}">All recipes</a></li>
                 <li><a href="#!">two</a></li>
                 <li><a href="#!">three</a></li>
             </ul>
@@ -39,8 +39,8 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recipe</a></li>
-                        <li><a href="#">Profile</a></li>
+                        <li><a class="dropdown-trigger" href="{{ url_for('get_recipes') }}" data-target="dropdown1">Recipe</a></li>
+                        <li><a href="{{ url_for('signup') }}">Profile</a></li>
                         <li><a href="#">Favorites</a></li>
                         <li><a href="#">Add new recipe</a></li>
                     </ul>

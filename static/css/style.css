@@ -32,6 +32,21 @@ p {
     font-size: 18px;
 }
 
+/*------------------------------------- Lines/ buttons */
+
+.blackline {
+    width: 70%;
+    border: 1px solid;
+}
+
+button {
+    font-family:  'Bebas Neue', cursive;
+    font-size: 20px;
+    border: 0px;
+    color: #fff;
+    background-color: #171717; 
+}
+
 /*------------------------------------- Heading */
 
 .nav-socials {
