@@ -9,7 +9,7 @@
 
     <!-- Add recipes -->
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_recipe') }}">
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s12">
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <p class="range-field">
-                        <input type="range" id="serves" name="serves" min="1" max="20" class="validate" required/>
+                        <input type="range" id="serves" name="serves" min="0" max="12" class="validate" required/>
                     </p>
                     <label for="serves">For how many persons is the recipe?</label>
                 </div>
@@ -49,7 +49,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <p class="range-field">
-                        <input  type="range" id="prep_time" name="prep_time" min="1" max="120" class="validate" required/>
+                        <input  type="range" id="prep_time" name="prep_time" min="1" max="60" class="validate" required/>
                     </p>
                     <label for="prep_time">Prepping time (in minutes)</label>
                 </div>
@@ -75,7 +75,6 @@
                     <label for="tips">Tips</label>
                 </div>
             </div>
-            
             <!-- Submit button -->
             <div class="row">
                 <button type="submit" class="col s4 custom-btn">Add recipe</button>

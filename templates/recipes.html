@@ -12,10 +12,10 @@
         
         <div class="row">
             {% for recipe in recipes %}
-            <div class="col s4 recipe-img">
+            <div class="col s4 recipes-display">
                 <a href="#">
-                    <img src="static/images/logo/logo-bt.png">
-                    <span class="card-title">{{ recipe.recipe_name }}</span>
+                    <img class="img_recipe" src="{{ recipe.img_url}}">
+                    <span class="card-title recipes-title">{{ recipe.recipe_name }}</span>
                 </a>
             </div>
              {% endfor %}
