@@ -39,19 +39,17 @@
             <!-- Serves -->
             <div class="row">
                 <div class="input-field col s12">
-                    <p class="range-field">
-                        <input type="range" id="serves" name="serves" min="0" max="12" class="validate" required/>
-                    </p>
-                    <label for="serves">For how many persons is the recipe?</label>
+                    <input id="serves" name="serves" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <label for="serves">Number of serves</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">For example: 2</span>
                 </div>
             </div>
             <!-- Preping time  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <p class="range-field">
-                        <input  type="range" id="prep_time" name="prep_time" min="1" max="60" class="validate" required/>
-                    </p>
+                    <input id="prep_time" name="prep_time" type="text" pattern="^[0-9]}$" class="validate" required>
                     <label for="prep_time">Prepping time (in minutes)</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">For examle: 30</span>
                 </div>
             </div>
             <!-- Ingredients  -->

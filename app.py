@@ -90,7 +90,9 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        user_recipes = list(mongo.db.recipes.find())
+        return render_template(
+            "profile.html", username=username, user_recipes=user_recipes)
     
     return redirect(url_for("login"))
 
@@ -111,7 +113,7 @@ def all_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-# --------- Add recipe --------- #
+# --------- ADD RECIPES  --------- #
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
