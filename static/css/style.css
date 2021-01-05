@@ -64,25 +64,13 @@ p {
     font-family:  'Bebas Neue', cursive;
     font-size: 20px;
     border: 5px;
+    padding: 10px;
+    margin: 5px;
     color: #fff;
     background-color: #212121;
 }
 
 .custom-btn:hover {
-    background-color: #000;
-}
-
-.small-btn {
-    font-family:  'Bebas Neue', cursive;
-    font-size: 20px;
-    padding: 3px 15px;
-    margin: 5px;
-    border: 5px;
-    color: #fff;
-    background-color: #212121;
-}
-
-.small-btn:hover {
     background-color: #000;
 }
 

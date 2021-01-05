@@ -13,7 +13,7 @@
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" value="{{recipe.recipe_name}}" type="text" class="validate" required>
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
@@ -21,9 +21,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose category</option>
+                        <option value="" disabled>Choose category</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                            {% if category.category_name == recipe.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
                     <label for="category_name">Recipe category</label>
@@ -32,14 +36,14 @@
             <!-- Upload img URL -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="img_url" name="img_url" type="text" class="validate" required>
+                    <input id="img_url" name="img_url" value="{{recipe.img_url}}" type="text" class="validate" required>
                     <label for="img_url">Image url</label>
                 </div>
             </div>
             <!-- Serves -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="serves" name="serves" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <input id="serves" name="serves" value="{{recipe.serves}}" type="text" pattern="^[0-9]}$" class="validate" required>
                     <label for="serves">Number of serves</label>
                     <span class="helper-text" data-error="wrong" data-success="right">For example: 2</span>
                 </div>
@@ -47,7 +51,7 @@
             <!-- Preping time  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="prep_time" name="prep_time" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <input id="prep_time" name="prep_time" value="{{recipe.prep_time}}" type="text" pattern="^[0-9]}$" class="validate" required>
                     <label for="prep_time">Prepping time (in minutes)</label>
                     <span class="helper-text" data-error="wrong" data-success="right">For examle: 30</span>
                 </div>
@@ -55,27 +59,34 @@
             <!-- Ingredients  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
+                    <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required>
+                        {{- recipe.ingredients -}}
+                    </textarea>
                     <label for="ingredients">Ingredients</label>
                 </div>
             </div>
             <!-- Instructions  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="instructions" name="instructions" class="materialize-textarea validate" required></textarea>
+                    <textarea id="instructions" name="instructions" class="materialize-textarea validate" required>
+                        {{- recipe.instructions -}}
+                    </textarea>
                     <label for="instructions">Instructions</label>
                 </div>
             </div>
             <!-- Tips  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="tips" name="tips" class="materialize-textarea"></textarea>
+                    <textarea id="tips" name="tips" class="materialize-textarea">
+                        {{- recipe.tips -}}
+                    </textarea>
                     <label for="tips">Tips</label>
                 </div>
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s4 custom-btn">Edit recipe</button>
+                <button type="submit" class="col s3 btn-small custom-btn">Edit recipe</button>
+                <a class = "col s3 btn-small custom-btn center-align" href="{{ url_for('profile', username=session['user'])  }}">cancel</a>
             </div>
         </form>
     </div>
