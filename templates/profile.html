@@ -30,8 +30,8 @@
                             <h5>{{ recipe.recipe_name }}</h5>
                         </div>
                         <div class="col s5">
-                            <a href="" class="small-btn right">Delete</a>
-                            <a href="" class="small-btn right">Edit</a>
+                            <a href="#" class="small-btn right">Delete</a>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="small-btn right">Edit</a>
                         </div>
                     </div>
                     <div class="collapsible-body">

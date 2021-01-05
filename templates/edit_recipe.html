@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Title -->
+    <div class="row">
+        <h3 class="center-align">Edit recipe</h3>
+        <hr class="blackline">
+    </div>
+
+    <!-- Add recipes -->
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <!-- Recipe name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                    <label for="recipe_name">Recipe name</label>
+                </div>
+            </div>
+            <!-- Category name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose category</option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Recipe category</label>
+                </div>
+            </div>
+            <!-- Upload img URL -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="img_url" name="img_url" type="text" class="validate" required>
+                    <label for="img_url">Image url</label>
+                </div>
+            </div>
+            <!-- Serves -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="serves" name="serves" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <label for="serves">Number of serves</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">For example: 2</span>
+                </div>
+            </div>
+            <!-- Preping time  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="prep_time" name="prep_time" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <label for="prep_time">Prepping time (in minutes)</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">For examle: 30</span>
+                </div>
+            </div>
+            <!-- Ingredients  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
+                    <label for="ingredients">Ingredients</label>
+                </div>
+            </div>
+            <!-- Instructions  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instructions" name="instructions" class="materialize-textarea validate" required></textarea>
+                    <label for="instructions">Instructions</label>
+                </div>
+            </div>
+            <!-- Tips  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="tips" name="tips" class="materialize-textarea"></textarea>
+                    <label for="tips">Tips</label>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <button type="submit" class="col s4 custom-btn">Edit recipe</button>
+            </div>
+        </form>
+    </div>
+   
+
+   
+
+
+
+{% endblock %}
