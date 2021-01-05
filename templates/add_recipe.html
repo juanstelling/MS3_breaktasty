@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Title -->
+    <div class="row">
+        <h3 class="center-align">Add new recipe</h3>
+        <hr class="blackline">
+    </div>
+
+    <!-- All recipes -->
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="">
+            <!-- Recipe name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" name="email" type="email" class="validate" required>
+                    <label for="email">Recipe name</label>
+                </div>
+            </div>
+            <!-- Username -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="username" name="username" type="text" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
+                    <label for="username">username</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                </div>
+            </div>
+            <!--Password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" name="password" type="password" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
+                    <label for="password">Password</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                </div>
+            </div>
+            <!-- Terms and conditions -->
+            <div class="row">
+                <label>
+                    <input type="checkbox" required/>
+                    <span>By registering I agree to the terms and conditions</span>
+                </label>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <button type="submit" class="col s4 custom-btn">Signup</button>
+            </div>
+        </form>
+    </div>
+   
+
+   
+
+
+
+{% endblock %}
