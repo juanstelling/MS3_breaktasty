@@ -8,20 +8,10 @@
         </div>
     </div>
 
-    {% for recipe in user_recipes %}
-        {{ recipe.title }}<br>
-        {{ recipe.category_name }}<br>
-        {{ recipe.serves }}<br>
-        {{ recipe.prep_time}}<br>
-        {{ recipe.ingredients}}<br>
-        {{ recipe.instructions}}<br>
-        {{ recipe.tips}}<br>
-    {% endfor %}
-
     <!-- Recipes of user -->
     <div class="row">
         <div class="col s4 m3 offset-m2">
-            <h4>My added recipes</h4>
+            <h4>My recipes</h4>
         </div>
         <div class="col s8 m5 right">
             <h4><a href="{{ url_for('add_recipe') }}" id="black-cta">Add new recipe +</a></h4>
@@ -29,18 +19,22 @@
         <!-- All recipes of user -->
         <div class="col s12 m8 offset-m2">
             <ul class="collapsible">
+                {% for recipe in user_recipes %}
                 <li>
-                    <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-header">
+                        <i class="fas fa-caret-down"></i>
+                        <h6>{{ recipe.recipe_name }}</h6>
+                    </div>
+                    <div class="collapsible-body">
+                        <h6>category: {{ recipe.category_name }}</h6>
+                        <h6>Serves: {{ recipe.serves }}</h6>
+                        <h6>Prepping time: {{ recipe.prep_time }}</h6>
+                        <h6>Ingredients: {{ recipe.ingredients }}</h6>
+                        <h6>Instructions: {{ recipe.instructions}}</h6>
+                        <h6>Tips: {{ recipe.tips}}</h6>
+                    </div>
                 </li>
-                <li>
-                    <div class="collapsible-header"><i class="fas fa-caret-down"></i>Second</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
-                <li>
-                    <div class="collapsible-header"><i class="fas fa-caret-down"></i>Third</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
+                {% endfor %}
             </ul>
 
         </div>
