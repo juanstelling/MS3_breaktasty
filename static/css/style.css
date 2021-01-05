@@ -149,6 +149,17 @@ nav ul a {
     color: #fff;
 }
 
+/*------------------------------------- Recipes  */
+
+.recipe-img {
+    text-align: justify;
+}
+
+.recipe-img img {
+    display: block;
+    margin: 0;
+}
+
 
 
 
