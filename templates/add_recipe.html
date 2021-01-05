@@ -7,42 +7,78 @@
         <hr class="blackline">
     </div>
 
-    <!-- All recipes -->
+    <!-- Add recipes -->
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="">
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" name="email" type="email" class="validate" required>
-                    <label for="email">Recipe name</label>
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                    <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
-            <!-- Username -->
+            <!-- Category name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="username" name="username" type="text" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
-                    <label for="username">username</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                    <select>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                    <label>Materialize Select</label>
                 </div>
             </div>
-            <!--Password -->
+            <!-- Upload img URL -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" name="password" type="password" minlength="5" maxlength="20" pattern="^[a-zA-Z0-9]{5, 20}$" class="validate" required>
-                    <label for="password">Password</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">5-20 characters</span>
+                    <input id="img_url" name="img_url" type="text" class="validate" required>
+                    <label for="img_url">Image url</label>
                 </div>
             </div>
-            <!-- Terms and conditions -->
+            <!-- Serves -->
             <div class="row">
-                <label>
-                    <input type="checkbox" required/>
-                    <span>By registering I agree to the terms and conditions</span>
-                </label>
+                <div class="input-field col s12">
+                    <p class="range-field">
+                        <input type="range" id="serves" name="serves" min="1" max="20" class="validate" required/>
+                    </p>
+                    <label for="serves">For how many persons is the recipe?</label>
+                </div>
             </div>
+            <!-- Preping time  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <p class="range-field">
+                        <input  type="range" id="prep_time" name="prep_time" min="1" max="120" class="validate" required/>
+                    </p>
+                    <label for="prep_time">Prepping time (in minutes)</label>
+                </div>
+            </div>
+            <!-- Ingredients  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="ingredients" name="ingredients" class="materialize-textarea validate" required></textarea>
+                    <label for="ingredients">Ingredients</label>
+                </div>
+            </div>
+            <!-- Instructions  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="instructions" name="instructions" class="materialize-textarea validate" required></textarea>
+                    <label for="instructions">Instructions</label>
+                </div>
+            </div>
+            <!-- Tips  -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="tips" name="tips" class="materialize-textarea"></textarea>
+                    <label for="tips">Tips</label>
+                </div>
+            </div>
+            
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s4 custom-btn">Signup</button>
+                <button type="submit" class="col s4 custom-btn">Add recipe</button>
             </div>
         </form>
     </div>

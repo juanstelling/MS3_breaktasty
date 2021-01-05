@@ -160,6 +160,33 @@ nav ul a {
     margin: 0;
 }
 
+.range-field {
+    margin-top: 65px;
+}
+
+
+
+/*------------------------------------- Add recipes  */
+/* from: https://stackoverflow.com/questions/40534973/changing-the-color-of-the-range-slider-in-materializecss  */
+
+ input[type=range]::-webkit-slider-thumb {
+    background-color: #000;
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: #000;
+  }
+  input[type=range]::-ms-thumb {
+    background-color: #000;
+  }
+
+  /***** These are to edit the thumb and the text inside the thumb *****/
+  input[type=range] + .thumb {
+    background-color: #dedede;
+  }
+  input[type=range] + .thumb.active .value {
+    color: #000;
+  }
+
 
 
 
