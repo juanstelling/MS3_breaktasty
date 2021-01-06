@@ -139,10 +139,40 @@ def add_recipe():
 # --------- EDIT RECIPES  --------- #
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    if request.method == "POST":
+        edited = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("img_url"),
+            "serves": request.form.get("serves"),
+            "prep_time": request.form.get("prep_time"),
+            "ingredients": request.form.get("ingredients"),
+            "instructions": request.form.getlist("instructions"),
+            "tips": request.form.get("tips"),
+            "created_by": session["user"] 
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, edited)
+        flash("Recipe is successfully edited")
+        return redirect(url_for("profile", username=session['user']))
+
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template(
         "edit_recipe.html", recipe=recipe, categories=categories)
+
+# --------- DELETE RECIPES  --------- #
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe is succesfully deleted")
+    return redirect(url_for("profile", username=session['user']))
+
+
+# --------- MANAGE CATEGORIES --------- #
+@app.route("/categories")
+def categories():
+    categories = list(mongo.db.categories.find().sort("category_name", 1))
+    return render_template("categories.html", categories=categories)
 
 
 if __name__ == "__main__":

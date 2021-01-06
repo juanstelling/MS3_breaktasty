@@ -10,10 +10,10 @@
 
     <!-- Recipes of user -->
     <div class="row">
-        <div class="col s4 m3 offset-m2">
+        <div class="col s5 m4 offset-m2">
             <h4>My recipes</h4>
         </div>
-        <div class="col s8 m5 right">
+        <div class="col s7 m4 right">
             <h4><a href="{{ url_for('add_recipe') }}" id="black-cta">Add new recipe +</a></h4>
         </div>
         <!-- All recipes of user -->
@@ -24,14 +24,13 @@
                     <div class="collapsible-header">
                         <div class="col s2">
                             <i class="fas fa-caret-down"></i> 
-                            
                         </div>
                         <div class="col s5">
                             <h5>{{ recipe.recipe_name }}</h5>
                         </div>
                         <div class="col s5">
-                            <a href="#" class="col s3 custom-btn center align right">Delete</a>
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="col s3 custom-btn center align right right">Edit</a>
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id)}}" class="change-button center align right">Delete</a>
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id)}}" class="change-button center align right right">Edit</a>
                         </div>
                     </div>
                     <div class="collapsible-body">

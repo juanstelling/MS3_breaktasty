@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Title -->
+    <div class="row">
+        <h3 class="center-align">Categories</h3>
+        <hr class="blackline">
+    </div>
+
+    <!-- Recipes of user -->
+    <div class="row">
+        <div class="col s5 m4 offset-m2">
+            <h4>All categories</h4>
+        </div>
+        <div class="col s7 m4 right">
+            <h4><a href="{{ url_for('add_recipe') }}" id="black-cta">Add new category</a></h4>
+        </div>
+        <!-- All recipes of user -->
+        <div class="col s12 m8 offset-m2">
+            <ul class="collection">
+                {% for category in categories %}
+                <li class="collection-item">
+                    <div class="row custom-row">
+                        <div class="col s5">
+                            <h5>{{ category.category_name }}</h5>
+                        </div>
+                        <div class="col s7">
+                            <a href="" class="change-button center align right">Delete</a>
+                            <a href="" class="change-button center align right right">Edit</a>
+                
+                        </div>
+                    </div>
+                  
+                        
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+{% endblock %}
