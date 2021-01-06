@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Title -->
+    <div class="row">
+        <h3 class="center-align">Add category</h3>
+        <hr class="blackline">
+    </div>
+
+    <!-- Add category -->
+    <div class="row">
+        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('add_category') }}">
+            <!-- Category name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="category_name" name="category_name" type="text" class="validate" required>
+                    <label for="category_name">Category name</label>
+                </div>
+            </div>
+            <!-- Submit button -->
+            <div class="row">
+                <button type="submit" class="col s4 btn-small custom-btn">Add category</button>
+                <a class = "col s3 btn-small custom-btn center-align" href="{{ url_for('categories')  }}">cancel</a>
+            </div>
+        </form>
+    </div>
+   
+
+   
+
+
+
+{% endblock %}

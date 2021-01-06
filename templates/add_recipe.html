@@ -75,7 +75,8 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s4 custom-btn">Add recipe</button>
+                <button type="submit" class="col s4 btn-small custom-btn">Add recipe</button>
+                <a class = "col s3 btn-small custom-btn center-align" href="{{ url_for('profile', username=session['user'])  }}">cancel</a>
             </div>
         </form>
     </div>
