@@ -97,6 +97,14 @@ p {
     background-color: #fff;
 }
 
+.subscribe-btn {
+    font-family:  'Bebas Neue', cursive;
+    font-size: 20px;
+    border: 5px;
+    color: #000;
+    background-color: #fff;
+}
+
 /*------------------------------------- CTA's */
 
 #white-cta {
@@ -174,25 +182,25 @@ nav ul a {
 
 /*------------------------------------- Homepage */
 
-#introduction {
-    background: url("https://images.pexels.com/photos/4725659/pexels-photo-4725659.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=500&w=1260");
-    height: 500px;
+#image-header {
+    background: url("https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-size: cover;
+    background-position: right center;
+    min-height: 400px;
     width: 100%;
     padding: 15px;
 }
 
 #home-quote {
-    padding-top: 20%;
+    padding-top: 15%;
+    padding-left: 55%;
     margin-bottom: 0;
+
 }
 
 #home-text {
-    margin-top: 0;
-}
-
-#cta-signup {
-    background-color: #000;
-    color: #fff;
+    padding-left: 55%;
+     margin-top: 0;
 }
 
 /*------------------------------------- Recipes  */
@@ -214,28 +222,27 @@ nav ul a {
     font-size: 17px;
 }
 
+/*------------------------------------- MEDIA QUERIES | for iPhone 6/7/8 plus   */
 
-/*------------------------------------- Add recipes  */
-/* from: https://stackoverflow.com/questions/40534973/changing-the-color-of-the-range-slider-in-materializecss  */
+@media screen and (max-width: 500px) {
+    #image-header {
+        background-size: cover;
+        background-position: right center;
+        min-height: 200px;
+        width: 100%;
+        padding: 15px;
+    }
+    #home-quote {
+        font-size: 25px;
+        padding-left: 45%;
+        padding-top: 40%;
+    }   
 
- input[type=range]::-webkit-slider-thumb {
-    background-color: #000;
-  }
-  input[type=range]::-moz-range-thumb {
-    background-color: #000;
-  }
-  input[type=range]::-ms-thumb {
-    background-color: #000;
-  }
-
-  /***** These are to edit the thumb and the text inside the thumb *****/
-  input[type=range] + .thumb {
-    background-color: #dedede;
-  }
-  input[type=range] + .thumb.active .value {
-    color: #000;
-  }
-
+    #home-text {
+        padding-left: 45%;
+        margin-top: 0;
+    }
+}
 
 
 

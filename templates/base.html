@@ -92,8 +92,8 @@
         </section>
 
         <main>
-        {% block content %}
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
         </main>
 
         <!-- Footer -->
@@ -103,15 +103,29 @@
                     <div class="col l6 s12">
                         <h4 class="white-text">For breakfast lovers</h4>
                         <p class="grey-text text-lighten-4">
-                            ‘This platform is all about beakfasts. Here you’ll find recipes for all
-                             kind of breakfasts for enjoying happy morings’
+                            This platform is all about beakfasts. It is designed to inspire you 
+                            and others for delicious breakfast recipes. Everyone is welcome to create 
+                            an account and add their own recipes. 
+                        </p>
+                        <p class="grey-text text-lighten-4">
+                            You will find recipes for all kind of breakfasts for enjoying happy mornings.
+                            For people who love breakfasts. To get inspired, to share and to enjoy   
                         </p>
                     </div>
                     <div class="col l4 offset-l2 s12">
                         <h4 class="white-text">Newsletter</h4>
                         <p class="white-text text-lighten-4">
-                            Sign up for the newsletter to stay up to date on new recipes and other news.  
+                            Subscribe for the newsletter to stay up to date on new recipes and other news.  
                         </p> 
+                        <!-- sign in for newsletter-->
+                        <form  method="POST" action="{{ url_for('subscribe') }}">              
+                            <div class="input-field ">
+                                <input id="email" name="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                            <!-- Subscribe button -->
+                                <button type="submit" class="col s6 subscribe-btn">Subscribe</button>     
+                        </form>
                     </div>
                 </div>
             </div>

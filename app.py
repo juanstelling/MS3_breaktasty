@@ -22,7 +22,8 @@ mongo = PyMongo(app)
 # --------- HOME PAGE  --------- #
 @app.route("/")
 def index():
-    return render_template("index.html")
+    recipes = list(mongo.db.recipes.find())
+    return render_template("index.html", recipes=recipes)
 
 
 # --------- REGISTRATION  --------- #
@@ -214,6 +215,26 @@ def delete_category(category_id):
     flash("Category is succesfully deleted")
     return redirect(url_for("categories"))
 
+
+# --------- SUBSCRIBE NEWSLETTER  --------- #
+@app.route("/subscribe", methods=["GET", "POST"])
+def subscribe():
+    if request.method == "POST":
+        # check if email already exists in db 
+        existing_email = mongo.db.subscribers.find_one(
+            {"email" : request.form.get("email").lower()})
+
+        if existing_email:
+            flash("You are already subscribed to the newsletter")
+            return redirect(url_for('index'))
+
+        subscribe = {
+            "email": request.form.get("email").lower()
+        }
+        mongo.db.subscribers.insert_one(subscribe)
+
+    flash("You are succesfully subscribed")
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
