@@ -7,9 +7,28 @@
         <hr class="blackline">
     </div>
 
-    <!-- All recipes -->
     <div class="container">
-        
+        <!-- Search -->
+        <div class="row">
+            <div class="col s12">
+                <nav id="search-nav">
+                    <div class="nav-wrapper">
+                        <form action="{{ url_for('search') }}" method="post">
+                            <div class="input-field">
+                                <input id="query" name="query" type="search" required>
+                                <label class="label-icon" for="query">search</label>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+                <div>
+                    <a href="{{ url_for('all_recipes')}}" class="reset right">Reset</a>
+                </div>
+            </div>
+        </div>
+
+        {% if recipes|length > 0 %}
+        <!-- All recipes -->
         <div class="row">
             {% for recipe in recipes %}
             <div class="col s4 recipes-display">
@@ -20,7 +39,13 @@
             </div>
              {% endfor %}
         </div>
-       
+        {% else %}
+        <div class="row">
+            <div class="col s12 center-align">
+                <h4>No Result, try something else!</h4>
+            </div>       
+        </div>  
+        {% endif %}  
     </div>
 
    
