@@ -113,7 +113,6 @@ def all_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
-# --------- ADD RECIPES  --------- #
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -186,6 +185,20 @@ def add_category():
         return redirect(url_for("categories"))
 
     return render_template("add_category.html")
+
+
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        edited = {
+            "category_name": request.form.get("category_name")
+        }
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, edited)
+        flash("Category is succesfully edited")
+        return redirect(url_for("categories"))
+
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template("edit_category.html", category=category)
 
 
 if __name__ == "__main__":
