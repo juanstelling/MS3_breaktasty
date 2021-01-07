@@ -26,26 +26,37 @@
         <!-- Ingredients and instructions -->
         <div class="row">
             <div class="col s4 custom-col">
-                <h5>Ingredients</h5>
+                <h4>Ingredients</h4>
                 <ul>
-                    <li>
-                        <p>{{recipe.ingredients}}</p>
-                    </li>
-                </ul>
-                
-
+                    {% for list in recipe.ingredients.splitlines() %}
+                        <li>
+                            <i class="fas fa-circle"></i>
+                            <h7>{{list}}</h7>
+                        </li>
+                    {% endfor %}
+                </ul> 
             </div>
             <div class="col s8">
-                <h5>Instructions</h5>
-
+                <h4>Instructions</h4>
+                <ul>
+                    {% for steps in recipe.instructions %}
+                    <li>
+                        <p>{{steps}}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
         <!-- Tips -->
+        {% if recipe.tips %}
         <div class="row">
             <div class="col s12">
                 <h5>Tips</h5>
+                <p>{{ recipe.tips }}</p>
             </div>
         </div>
+        {% else %}
+        {% endif %}
     </div>
     
 

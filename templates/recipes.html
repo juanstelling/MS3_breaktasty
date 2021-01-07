@@ -32,7 +32,7 @@
         <div class="row">
             {% for recipe in recipes %}
             <div class="col s4 recipes-display">
-                <a href="#">
+                <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
                     <img class="img_recipe" src="{{ recipe.img_url}}">
                     <span class="card-title recipes-title">{{ recipe.recipe_name }}</span>
                 </a>
