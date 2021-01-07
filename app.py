@@ -26,7 +26,7 @@ def index():
     return render_template("index.html", recipes=recipes)
 
 
-# --------- REGISTRATION  --------- #
+# --------- USERS  --------- #
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
@@ -53,7 +53,6 @@ def signup():
     return render_template("signup.html")
 
 
-# --------- LOGIN  --------- #
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -83,22 +82,26 @@ def login():
     return render_template("login.html")
 
 
-# --------- PROFILE  --------- #
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
+    # grab the session user's username from db 
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
+        {"username": session["user"]}) ["username"]
+    
     if session["user"]:
-        user_recipes = list(mongo.db.recipes.find())
+        # Admin has acces to all recipes
+        if session["user"] == "admin":
+            user_recipes = list(mongo.db.recipes.find())
+        else:
+            # user sees own recipes
+            user_recipes = list(
+                mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template(
             "profile.html", username=username, user_recipes=user_recipes)
     
     return redirect(url_for("login"))
 
 
-# --------- LOGOUT  --------- #
 @app.route("/logout")
 def logout():
     #remove user from session cookies 
@@ -108,8 +111,8 @@ def logout():
 
 
 # --------- RECIPES  --------- #
-@app.route("/all_recipes")
-def all_recipes():
+@app.route("/recipes")
+def recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
@@ -119,6 +122,13 @@ def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
+
+
+# --------- RECIPE DESCRIPTION  --------- #
+@app.route("/recipe/<recipe_id>")
+def recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("recipe.html", recipe=recipe)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -137,13 +147,12 @@ def add_recipe():
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe is successfully added")
-        return redirect(url_for("all_recipes"))
+        return redirect(url_for("profile", username=session['user']))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
 
-# --------- EDIT RECIPES  --------- #
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -167,7 +176,7 @@ def edit_recipe(recipe_id):
     return render_template(
         "edit_recipe.html", recipe=recipe, categories=categories)
 
-# --------- DELETE RECIPES  --------- #
+
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -222,7 +231,7 @@ def subscribe():
     if request.method == "POST":
         # check if email already exists in db 
         existing_email = mongo.db.subscribers.find_one(
-            {"email" : request.form.get("email").lower()})
+            {"email": request.form.get("email").lower()})
 
         if existing_email:
             flash("You are already subscribed to the newsletter")

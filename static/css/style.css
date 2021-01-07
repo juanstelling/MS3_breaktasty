@@ -27,7 +27,7 @@ p {
     font-family: 'Raleway', sans-serif;
 }
 
-/*------------------------------------- Special Lines / rows */
+/*------------------------------------- Special Lines / rows / cols */
 
 .blackline {
     width: 70%;
@@ -48,6 +48,10 @@ p {
 
 .custom-row {
     margin: 0;
+}
+
+.custom-col {
+    border: 1px solid;
 }
 
 /*-------------------------------------Icons */
