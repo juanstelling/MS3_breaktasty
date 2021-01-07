@@ -111,10 +111,14 @@ def logout():
 
 
 # --------- RECIPES  --------- #
-@app.route("/recipes")
-def recipes():
-    recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+@app.route("/recipes/<category>")
+def recipes(category):
+    if category == "all":
+        recipes = list(mongo.db.recipes.find())
+    elif category == "smoothie":
+        recipes = list(mongo.db.recipes.find({"category_name": "Smoothie"}))
+    
+    return render_template("recipes.html", recipes=recipes, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -124,7 +128,7 @@ def search():
     return render_template("recipes.html", recipes=recipes)
 
 
-# --------- RECIPE DESCRIPTION  --------- #
+# --------- Recipe description --------- #
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})

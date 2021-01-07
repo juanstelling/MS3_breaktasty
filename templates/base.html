@@ -33,9 +33,9 @@
             <!-- Main navbar -->
             <!-- Dropdown Structure -->
             <ul id="dropdown1" class="dropdown-content">
-                <li><a href="{{ url_for('recipes') }}">All recipes</a></li>
-                <li><a href="{{ url_for('recipes') }}">smoothie</a></li>
-                <li><a href="#!">three</a></li>
+                <li><a href="{{ url_for('recipes', category='all') }}">All recipes</a></li>
+                <li><a href="{{ url_for('recipes', category='smoothie') }}">smoothie</a></li>
+                <li><a href="{{ url_for('recipes', category='all') }}">three</a></li>
             </ul>
             <nav>
                 <div class="nav-wrapper white">
@@ -44,7 +44,7 @@
                     <ul class="right hide-on-med-and-down">
                         <li><a href="{{ url_for('index') }}">Home</a></li>
                         <!-- Dropdown Trigger -->
-                        <li><a class="dropdown-trigger" href="{{ url_for('recipes') }}" data-target="dropdown1">Recipes</a></li>
+                        <li><a class="dropdown-trigger" href="{{ url_for('recipes', category='all') }}" data-target="dropdown1">Recipes</a></li>
                         {% if session.user %}
                             <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                             <li><a href="{{ url_for('recipe', recipe_id='5fe05a18f3c3644dba0f69e7') }}">Favorites</a></li>
@@ -59,14 +59,14 @@
             
             <!-- Mobile navbar -->
             <ul id="dropdown2" class="dropdown-content">
-                <li><a href="{{ url_for('recipes') }}">All recipes</a></li>
-                <li><a href="{{ url_for('recipes') }}">smoothie</a></li>
+                <li><a href="#">All recipes</a></li>
+                <li><a href="#">smoothie</a></li>
                 <li><a href="#!">three</a></li>
             </ul>
             <ul class="sidenav" id="mobile-demo">
                 <li><h4 class="center-align black-text mob-nav">Breaktasty.</h4></li>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a class="dropdown-trigger" href="{{ url_for('recipes') }}" data-target="dropdown2">Recipes</a></li>
+                <li><a class="dropdown-trigger" href="#" data-target="dropdown2">Recipes</a></li>
                 {% if session.user %}
                     <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                     <li><a href="">Favorites</a></li>
