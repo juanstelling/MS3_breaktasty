@@ -38,13 +38,14 @@
             </div>
             <div class="col s8">
                 <h4>Instructions</h4>
-                <ul>
-                    {% for steps in recipe.instructions %}
+                <ol>
+                    {% for steps in recipe.instructions.splitlines() %}
                     <li>
                         <p>{{steps}}</p>
                     </li>
                     {% endfor %}
-                </ul>
+                </ol>
+                
             </div>
         </div>
         <!-- Tips -->

@@ -14,7 +14,7 @@
             <h5>My recipes</h5>
         </div>
         <div class="col s7 m4 right">
-            <h5><a href="{{ url_for('add_recipe') }}" id="black-cta">Add new recipe +</a></h5>
+            <h5><a href="{{ url_for('add_recipe') }}" class="black-cta">Add new recipe +</a></h5>
         </div>
         <!-- All recipes of user -->
         <div class="col s12 m8 offset-m2">
@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     <div class="collapsible-body">
+                        <h6><a class = "black-cta right" href="{{ url_for('recipe', recipe_id=recipe._id) }}">Go to recipe</a></h6>
                         <h6>category: {{ recipe.category_name }}</h6>
                         <h6>Serves: {{ recipe.serves }}</h6>
                         <h6>Prepping time: {{ recipe.prep_time }}</h6>

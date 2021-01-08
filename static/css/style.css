@@ -123,12 +123,12 @@ p {
     color: #bbb;
 }
 
-#black-cta {
+.black-cta {
     color: #000;
     text-decoration: underline;
 }
 
-#black-cta:hover {
+.black-cta:hover {
     color: #585858;
 }
 
@@ -229,6 +229,9 @@ nav ul a {
 /*------------------------------------- MEDIA QUERIES | for iPhone 6/7/8 plus   */
 
 @media screen and (max-width: 500px) {
+    h4 {
+        font-size: 20px;
+    }
     #image-header {
         background-size: cover;
         background-position: right center;
