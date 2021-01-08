@@ -42,14 +42,16 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s6 custom-btn">Login</button>
+                <div class="col s12">
+                    <button type="submit" class="col s6 custom-btn">Login</button>
+                </div>       
             </div>
         </form>
         <!-- Signup section -->
         <div class="col s6 m4">
             <div class="vertical-line">
                 <h4>Don't have an account yet?</h4>
-                <a class = "col s4 custom-btn center-align" href="{{ url_for('signup') }}">Signup</a>
+                <a class = "col custom-btn center-align" href="{{ url_for('signup') }}">Signup</a>
             </div>
 
         </div>

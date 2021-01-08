@@ -87,15 +87,12 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s3 btn-small custom-btn">Edit recipe</button>
-                <a class = "col s3 btn-small custom-btn center-align" href="{{ url_for('profile', username=session['user'])  }}">cancel</a>
+                <div class="col s12">
+                    <button type="submit" class="col s3 btn-small custom-btn">Edit recipe</button>
+                    <a class = "col s3 btn-small custom-btn center-align" href="{{ url_for('profile', username=session['user'])  }}">cancel</a>
+                </div>      
             </div>
         </form>
     </div>
-   
-
-   
-
-
-
+    
 {% endblock %}

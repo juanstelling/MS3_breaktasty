@@ -18,28 +18,28 @@
         <div class="col s12 m8 offset-m2">
             <ul class="collection">
                 {% for category in categories %}
-                <li class="collection-item">
-                    <div class="row custom-row">
-                        <div class="col s5">
-                            <h5>{{ category.category_name }}</h5>
-                        </div>
-                        <div class="col s7">
-                            <!-- Modal delete Trigger -->
-                            <a class="modal-trigger change-button center align right" href="#modal{{ loop.index }}">Delete</a>
-                            <!-- Modal delete Structure -->
-                            <div id="modal{{ loop.index }}" class="modal">
-                                <div class="modal-content">
-                                    <h4>Are you sure you want to delete {{ category.category_name }}?</h4>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="{{ url_for('categories') }}" class="modal-close  btn-flat">Cancel</a>
-                                    <a href="{{ url_for('delete_category', category_id=category._id) }}" class="modal-close btn-flat">Delete</a>
-                                </div>
+                    <li class="collection-item">
+                        <div class="row custom-row">
+                            <div class="col s5">
+                                <h5>{{ category.category_name }}</h5>
                             </div>
-                            <a href="{{ url_for('edit_category', category_id=category._id) }}" class="change-button center align right right">Edit</a>
-                        </div>
-                    </div>     
-                </li>
+                            <div class="col s7">
+                                <!-- Modal delete Trigger -->
+                                <a class="modal-trigger change-button center align right" href="#modal{{ loop.index }}">Delete</a>
+                                <!-- Modal delete Structure -->
+                                <div id="modal{{ loop.index }}" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Are you sure you want to delete {{ category.category_name }}?</h4>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="{{ url_for('categories') }}" class="modal-close  btn-flat">Cancel</a>
+                                        <a href="{{ url_for('delete_category', category_id=category._id) }}" class="modal-close btn-flat">Delete</a>
+                                    </div>
+                                </div>
+                                <a href="{{ url_for('edit_category', category_id=category._id) }}" class="change-button center align right right">Edit</a>
+                            </div>
+                        </div>     
+                    </li>
                 {% endfor %}
             </ul>
         </div>

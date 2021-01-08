@@ -11,8 +11,6 @@
         <!-- Image and info -->
         <div class="row">
             <div class="col s4">
-                <h6>Save in favorites</h6>
-                <br>
                 <h6>Persons: {{recipe.serves}}</h6>
                 <h6>Prepping time: {{recipe.prep_time}}</h6>
                 <br>
@@ -40,30 +38,24 @@
                 <h4>Instructions</h4>
                 <ol>
                     {% for steps in recipe.instructions.splitlines() %}
-                    <li>
-                        <p>{{steps}}</p>
-                    </li>
+                        <li>
+                            <p>{{steps}}</p>
+                        </li>
                     {% endfor %}
-                </ol>
-                
+                </ol> 
             </div>
         </div>
         <!-- Tips -->
         {% if recipe.tips %}
-        <div class="row">
-            <div class="col s12">
-                <h5>Tips</h5>
-                <p>{{ recipe.tips }}</p>
+            <div class="row">
+                <div class="col s12">
+                    <h5>Tips</h5>
+                    <p>{{ recipe.tips }}</p>
+                </div>
             </div>
-        </div>
         {% else %}
         {% endif %}
     </div>
-    
-
-   
-
-
 
 {% endblock %}
     

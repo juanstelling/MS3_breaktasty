@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap: 100, 200, 300, 400, 500, 600, 700, 800, 900');
 
 /*-------------------------------------Special paddings/margins/text */ 
-
 html {
     height: 100%;
     width: 100%;
@@ -28,7 +27,6 @@ p {
 }
 
 /*------------------------------------- Special Lines / rows / cols */
-
 .blackline {
     width: 70%;
     border: 1px solid;
@@ -55,7 +53,6 @@ p {
 }
 
 /*-------------------------------------Icons */
-
 .fa-caret-down {
     margin-top: 15px;
 
@@ -67,7 +64,6 @@ p {
 }
 
 /*------------------------------------- Buttons */
-
 .custom-btn {
     font-family:  'Bebas Neue', cursive;
     font-size: 20px;
@@ -97,10 +93,6 @@ p {
     text-decoration: underline;
 }
 
-#search-nav {
-    background-color: #fff;
-}
-
 .subscribe-btn {
     font-family:  'Bebas Neue', cursive;
     font-size: 20px;
@@ -110,7 +102,6 @@ p {
 }
 
 /*------------------------------------- CTA's */
-
 #white-cta {
     font-family:  'Bebas Neue', cursive;
     font-size: 2.92rem;
@@ -132,8 +123,7 @@ p {
     color: #585858;
 }
 
-/*------------------------------------- Lost one  */
-
+/*------------------------------------- Flash message  */
 .flashes h4 {
     background-color: #000;
     color: #fff;
@@ -141,7 +131,6 @@ p {
 }
 
 /*------------------------------------- Heading */
-
 .nav-socials {
     background-color: #1b1b1b;
     margin-bottom: 0px;
@@ -168,7 +157,6 @@ nav ul a {
 }
 
 /*------------------------------------- Mobile heading  */
-
 .sidenav {
     font-family: 'Bebas Neue', cursive;
 }
@@ -179,13 +167,11 @@ nav ul a {
 }
 
 /*------------------------------------- Footer */
-
 .page-footer .footer-copyright {
     background-color: #1b1b1b;
 }
 
 /*------------------------------------- Homepage */
-
 #image-header {
     background: url("https://images.pexels.com/photos/1660030/pexels-photo-1660030.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
     background-size: cover;
@@ -208,6 +194,9 @@ nav ul a {
 }
 
 /*------------------------------------- Recipes  */
+#search-nav {
+    background-color: #fff;
+}
 
 .recipes-display {
     text-align: justify;
@@ -232,6 +221,9 @@ nav ul a {
     h4 {
         font-size: 20px;
     }
+    h5 {
+        font-size: 20px;
+    }
     #image-header {
         background-size: cover;
         background-position: right center;
@@ -248,6 +240,9 @@ nav ul a {
     #home-text {
         padding-left: 45%;
         margin-top: 0;
+    }
+    .recipes-title {
+        font-size: 15px;
     }
 }
 

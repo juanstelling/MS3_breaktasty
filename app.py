@@ -19,27 +19,26 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# --------- HOME PAGE  --------- #
+# ------------------------------------------------------------- HOMEPAGE  #
 @app.route("/")
 def index():
     recipes = list(mongo.db.recipes.find())
     return render_template("index.html", recipes=recipes)
 
 
-# --------- USERS  --------- #
+# ------------------------------------------------------------- USERS#
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-    
+
         if existing_user:
             flash("Username already exists")
             return redirect(url_for("signup"))
-    
+
         signup = {
-            "email": request.form.get("email").lower(),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -71,12 +70,12 @@ def login():
                             "profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("unfortunately, your username and/or password is incorrect.")
+                flash("Your username and/or password is incorrect")
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("unfortunately, your username and/or password is incorrect.")
+            flash("Your username and/or password is incorrect")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -84,10 +83,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db 
+    # grab the session user's username from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]}) ["username"]
-    
+        {"username": session["user"]})["username"]
+
     if session["user"]:
         # Admin has acces to all recipes
         if session["user"] == "admin":
@@ -98,21 +97,21 @@ def profile(username):
                 mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template(
             "profile.html", username=username, user_recipes=user_recipes)
-    
     return redirect(url_for("login"))
 
 
 @app.route("/logout")
 def logout():
-    #remove user from session cookies 
-    flash("You have been succesfully logged out!")
+    # Remove user from session cookies
+    flash("You have been succesfully logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-# --------- RECIPES  --------- #
+# ------------------------------------------------------------- RECIPES #
 @app.route("/recipes/<category>")
 def recipes(category):
+    # Show recipes of that specific category
     if category == "all":
         recipes = list(mongo.db.recipes.find())
     elif category == "smoothie":
@@ -125,12 +124,13 @@ def recipes(category):
         recipes = list(mongo.db.recipes.find({"category_name": "Pancakes"}))
     elif category == "other":
         recipes = list(mongo.db.recipes.find({"category_name": "Other"}))
-    
+
     return render_template("recipes.html", recipes=recipes, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    # Search for recipes based on query
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
@@ -139,12 +139,14 @@ def search():
 # --------- Recipe description --------- #
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
+    # Find recipe on the basis of id
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("recipe.html", recipe=recipe)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    # Adding recipe to db
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -155,12 +157,12 @@ def add_recipe():
             "ingredients": request.form.get("ingredients"),
             "instructions": request.form.get("instructions"),
             "tips": request.form.get("tips"),
-            "created_by": session["user"] 
+            "created_by": session["user"]
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe is successfully added")
         return redirect(url_for("profile", username=session['user']))
-
+    # Find categories from db
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipe.html", categories=categories)
 
@@ -168,6 +170,7 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
+        # Edit recipe to db
         edited = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
@@ -177,7 +180,7 @@ def edit_recipe(recipe_id):
             "ingredients": request.form.get("ingredients"),
             "instructions": request.form.get("instructions"),
             "tips": request.form.get("tips"),
-            "created_by": session["user"] 
+            "created_by": session["user"]
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, edited)
         flash("Recipe is successfully edited")
@@ -191,14 +194,16 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    # Delete recipe from db
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe is succesfully deleted")
     return redirect(url_for("profile", username=session['user']))
 
 
-# --------- CATEGORIES --------- #
+# ------------------------------------------------------------- CATEGORIES #
 @app.route("/categories")
 def categories():
+    # Find categories from db
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
@@ -206,6 +211,7 @@ def categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
+        # Add category to db
         category = {
             "category_name": request.form.get("category_name")
         }
@@ -219,11 +225,12 @@ def add_category():
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
+        # Edit category from db
         edited = {
             "category_name": request.form.get("category_name")
         }
         mongo.db.categories.update({"_id": ObjectId(category_id)}, edited)
-        flash("Category is succesfully edited!")
+        flash("Category is succesfully edited")
         return redirect(url_for("categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
@@ -232,23 +239,24 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    # Delete category from db
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category is succesfully deleted!")
+    flash("Category is succesfully deleted")
     return redirect(url_for("categories"))
 
 
-# --------- SUBSCRIBE NEWSLETTER  --------- #
+# ----------------------------------------------------- SUBSCRIBE NEWSLETTER #
 @app.route("/subscribe", methods=["GET", "POST"])
 def subscribe():
     if request.method == "POST":
-        # check if email already exists in db 
+        # Check if email already exists in db
         existing_email = mongo.db.subscribers.find_one(
             {"email": request.form.get("email").lower()})
 
         if existing_email:
             flash("You are already subscribed to the newsletter")
             return redirect(url_for('index'))
-
+        # Add mail to subscribe collection in db
         subscribe = {
             "email": request.form.get("email").lower()
         }

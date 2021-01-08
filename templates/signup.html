@@ -10,13 +10,6 @@
     <!-- Registration form -->
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('signup') }}">
-            <!-- Email -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" name="email" type="email" class="validate" required>
-                    <label for="email">Email</label>
-                </div>
-            </div>
             <!-- Username -->
             <div class="row">
                 <div class="input-field col s12">
@@ -42,7 +35,9 @@
             </div>
             <!-- Submit button -->
             <div class="row">
-                <button type="submit" class="col s4 custom-btn">Signup</button>
+                <div class="col s12">
+                    <button type="submit" class="col s4 custom-btn">Signup</button>
+                </div>     
             </div>
         </form>
     </div>
