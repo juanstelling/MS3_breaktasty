@@ -223,7 +223,7 @@ def edit_category(category_id):
             "category_name": request.form.get("category_name")
         }
         mongo.db.categories.update({"_id": ObjectId(category_id)}, edited)
-        flash("Category is succesfully edited")
+        flash("Category is succesfully edited!")
         return redirect(url_for("categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
@@ -233,7 +233,7 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("Category is succesfully deleted")
+    flash("Category is succesfully deleted!")
     return redirect(url_for("categories"))
 
 
