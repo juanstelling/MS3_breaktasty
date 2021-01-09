@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -264,6 +264,22 @@ def subscribe():
 
     flash("You are succesfully subscribed")
     return redirect(url_for("index"))
+
+
+# ---------------------------------------------------------- ERROR HANDLERS #
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("error_handlers/404.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("error_handlers/500.html"), 500
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("error_handlers/403.html"), 403
 
 
 if __name__ == "__main__":

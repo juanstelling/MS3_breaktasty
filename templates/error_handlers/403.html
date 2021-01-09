@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h2 class="center-align">403 - Forbidden </h2>
+                <h5 class="center-align">The page you were trying to reach is forbidden for some reason.</h5>
+                <h5 class="center-align"><a href="{{ url_for('index') }}" class="black-cta">Go to homepage</a></h5>
+                <hr class="blackline"> 
+            </div>       
+        </div>
+    </div>
+
+{% endblock %}

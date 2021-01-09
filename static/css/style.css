@@ -123,6 +123,12 @@ p {
     color: #585858;
 }
 
+/*------------------------------------- Image at errors  */
+.img-error {
+    height: 350px;
+    width: 350px;
+}
+
 /*------------------------------------- Flash message  */
 .flashes h4 {
     background-color: #000;
