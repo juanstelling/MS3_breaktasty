@@ -27,9 +27,29 @@
             </div>
         </div>
 
+         <!-- Mobile| All recipes-->
         {% if recipes|length > 0 %}
-            <!-- All recipes -->
+            <div class="row show-on-small hide-on-med-and-up">
+                {% for recipe in recipes %}
+                    <div class="col s6 recipes-display">
+                        <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+                            <img class="img_recipe" src="{{ recipe.img_url}}">
+                            <span class="card-title recipes-title">{{ recipe.recipe_name }}</span>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
             <div class="row">
+                <div class="col s12 center-align">
+                    <h4>No Result, try something else!</h4>
+                </div>       
+            </div>  
+        {% endif %} 
+
+        <!-- Dekstop and iPad | All recipes-->
+        {% if recipes|length > 0 %}
+            <div class="row hide-on-small-only">
                 {% for recipe in recipes %}
                     <div class="col s4 recipes-display">
                         <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
@@ -45,7 +65,7 @@
                     <h4>No Result, try something else!</h4>
                 </div>       
             </div>  
-        {% endif %}  
+        {% endif %} 
     </div>
 
 {% endblock %}
