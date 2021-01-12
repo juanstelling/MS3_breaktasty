@@ -46,7 +46,7 @@ def signup():
         }
         mongo.db.users.insert_one(signup)
 
-        # put the new user into 'session' cookie
+        # put the new user into 'session' cookies
         session["user"] = request.form.get("username").lower()
         flash("You are succesfully signed up.")
         return redirect(url_for("profile", username=session["user"]))
@@ -85,6 +85,10 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # Only users can acces profile
+    if not session.get("user"):
+        return render_template("error_handlers/404.html")
+
     # grab the session user's username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -127,7 +131,8 @@ def recipes(category):
     elif category == "other":
         recipes = list(mongo.db.recipes.find({"category_name": "Other"}))
 
-    return render_template("recipes/recipes.html", recipes=recipes, category=category)
+    return render_template(
+        "recipes/recipes.html", recipes=recipes, category=category)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -143,11 +148,20 @@ def search():
 def recipe(recipe_id):
     # Find recipe on the basis of id
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
+    # recipe id don't exist > 404 error
+    if not recipe:
+        return render_template("error_handlers/404.html")
+
     return render_template("recipes/recipe.html", recipe=recipe)
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    # Only users can add recipes
+    if not session.get("user"):
+        return render_template("error_handlers/404.html")
+
     # Adding recipe to db
     if request.method == "POST":
         recipe = {
@@ -164,15 +178,21 @@ def add_recipe():
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe is successfully added")
         return redirect(url_for("profile", username=session['user']))
+
     # Find categories from db
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("recipes/add_recipe.html", categories=categories)
+    return render_template(
+        "recipes/add_recipe.html", categories=categories)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
+    # Only users can edit recipes
+    if not session.get("user"):
+        return render_template("error_handlers/404.html")
+
+    # Edit recipe to db
     if request.method == "POST":
-        # Edit recipe to db
         edited = {
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
@@ -205,6 +225,10 @@ def delete_recipe(recipe_id):
 # ------------------------------------------------------------- CATEGORIES #
 @app.route("/categories")
 def categories():
+    # Only admin can access categories
+    if not session.get("user") == "admin":
+        return render_template("error_handlers/404.html")
+
     # Find categories from db
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories/categories.html", categories=categories)
