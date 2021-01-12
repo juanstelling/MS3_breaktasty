@@ -13,7 +13,7 @@
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="recipe_name" name="recipe_name" value="{{recipe.recipe_name}}" type="text" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" value="{{recipe.recipe_name}}" type="text" pattern="^[A-Za-z0-9\s]{1,20}$" class="validate" required>
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
@@ -36,24 +36,25 @@
             <!-- Upload img URL -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="img_url" name="img_url" value="{{recipe.img_url}}" type="text" class="validate" required>
+                    <input id="img_url" name="img_url" value="{{recipe.img_url}}" type="url" pattern="https?://.+" class="validate" required>
                     <label for="img_url">Image url</label>
+                    <span class="helper-text" data-error="enter valid URL" data-success="right"></span>
                 </div>
             </div>
             <!-- Serves -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="serves" name="serves" value="{{recipe.serves}}" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <input id="serves" name="serves" value="{{recipe.serves}}" type="number" class="validate" required>
                     <label for="serves">Number of serves</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">For example: 2</span>
+                    <span class="helper-text" data-error="enter valid number" data-success="right">For example: 2</span>
                 </div>
             </div>
             <!-- Preping time  -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="prep_time" name="prep_time" value="{{recipe.prep_time}}" type="text" pattern="^[0-9]}$" class="validate" required>
+                    <input id="prep_time" name="prep_time" value="{{recipe.prep_time}}" type="number" class="validate" required>
                     <label for="prep_time">Prepping time (in minutes)</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">For examle: 30</span>
+                    <span class="helper-text" data-error="enter valid number" data-success="right">For examle: 30</span>
                 </div>
             </div>
             <!-- Ingredients  -->

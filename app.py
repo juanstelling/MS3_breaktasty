@@ -284,6 +284,7 @@ def forbidden(e):
     return render_template("error_handlers/403.html"), 403
 
 
+# ---------------------------------------------------------- RUN THE APP  #
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
