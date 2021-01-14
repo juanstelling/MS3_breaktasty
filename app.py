@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for, abort)
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -46,7 +46,7 @@ def signup():
         }
         mongo.db.users.insert_one(signup)
 
-        # put the new user into 'session' cookies
+        # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("You are succesfully signed up.")
         return redirect(url_for("profile", username=session["user"]))
