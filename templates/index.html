@@ -43,7 +43,7 @@
                     {% for recipe in mob_recipes %}
                         <div class="col s12 recipes-display">
                             <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
-                                <img class="img_recipe" src="{{ recipe.img_url}}">
+                                <img class="img_recipe" src="{{ recipe.img_url}}" alt="recipe">
                                 <span class="card-title recipes-title">{{ recipe.recipe_name }}</span>
                             </a>
                         </div>
@@ -59,7 +59,7 @@
                     {% for recipe in recipes %}
                         <div class="col s4 recipes-display">
                             <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
-                                <img class="img_recipe" src="{{ recipe.img_url}}">
+                                <img class="img_recipe" src="{{ recipe.img_url}}" alt="recipe_mobile">
                                 <span class="card-title recipes-title">{{ recipe.recipe_name }}</span>
                             </a>
                         </div>

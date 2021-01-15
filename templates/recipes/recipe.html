@@ -18,7 +18,7 @@
                 <h6>Created by: {{recipe.created_by}}</h6>
             </div>
             <div class="col s8"> 
-                    <img class="img_recipe" src="{{recipe.img_url}}">
+                    <img class="img_recipe" src="{{recipe.img_url}}" alt="recipe_image">
             </div>
         </div>
         <!-- Ingredients and instructions -->
@@ -28,8 +28,7 @@
                 <ul>
                     {% for list in recipe.ingredients.splitlines() %}
                         <li>
-                            <i class="fas fa-circle"></i>
-                            <h7>{{list}}</h7>
+                            <p><i class="fas fa-circle"></i> {{list}}</p>    
                         </li>
                     {% endfor %}
                 </ul> 
