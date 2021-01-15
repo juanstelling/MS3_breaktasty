@@ -2,7 +2,7 @@
 
 <span id="breaktasty"></span>
 
-![Portfolio website]() IMAGE WEBSITE 
+![Portfolio website](readme_img/breaktasty.png)
 
 After a night of sleep, your energy level is low and your body needs new energy to function properly. Your body gets this new energy from a nutritious breakfast. Food is the most important energy source for your body. You can think of food as fuel for your body. 
 
@@ -86,8 +86,10 @@ All the goals of the first time visitors and site members also apply for the adm
 ### 1.3 Design 
 
 - #### Colour scheme 
-The four colours that are used for the recipe website are very neutral and simple. I have chosen these colours because the colours give a sleek and uncluttered appearance. 
-COLOUR PALLETTE 
+The three colours that are used for the recipe website are very neutral and simple. I have chosen these colours because the colours give a sleek and uncluttered appearance. 
+
+![Colour scheme](readme_img/colours.png)
+
 - **The black colour** is used for the social media navbar, a section of the footer, the flash messages, all text and some highlighted rows. 
 - **The grey colour** is used for a section in the footer. In this section the user can sign up for the newsletter and some information is given about the purpose of the website. This section is grey to highlight the section and makes it soften in contrast to the black colour. 
 - **The white colour** is the background of the body. This white colour makes all content on the body look clear and calm. 
@@ -102,21 +104,22 @@ In the project, icons are used that are provided by [Font Awesome](https://fonta
 The images I used for this project came from [Pexels](https://www.pexels.com/). Images are used for the header on the home page and all the recipes. 
 
 - #### Defensive design 
-- The user is not able to break the site by clicking on buttons. 
-- The signup form: 
-    - The username has to be between 5-20 characters and only must contain letters and numbers. 
-    - The password has to be between 5-20 characters and must contain at least one number, and one uppercase and lowercase letter.
-- The add and edit recipe form:
-    - The recipe name has to be between 1-20 characters and only must contain letters and numbers
-    - The category has to be chosen.
-    - The image URL must start with http:// or https://.
-    - The number of serves and prepping time has to be numbered.
-- By the email subscriber, the email must be in the following order: characters followed by a @ symbol, followed by more characters and then a “.”.
+
+    - The user is not able to break the site by clicking on buttons. 
+    - The signup form: 
+        - The username has to be between 5-20 characters and only must contain letters and numbers. 
+        - The password has to be between 5-20 characters and must contain at least one number, and one uppercase and lowercase letter.
+    - The add and edit recipe form:
+     - The recipe name has to be between 1-20 characters and only must contain letters and numbers
+        - The category has to be chosen.
+        - The image URL must start with http:// or https://.
+        - The number of serves and prepping time has to be numbered.
+    - By the email subscriber, the email must be in the following order: characters followed by a @ symbol, followed by more characters and then a “.”.
 
 - #### Interactive design 
 
-- The website has to be easy to navigate. 
-- The user can quickly find the information he/she wants to find. 
+    - The website has to be easy to navigate. 
+    - The user can quickly find the information he/she wants to find. 
 
 ![Interactive design](readme_img/interactive-design.png)
 
@@ -133,7 +136,7 @@ The project has four collections in the database. The database structure in Mong
 Mockup designs are made with [Figma.](https://www.figma.com/)
 
 Click on the links below to see the mockups in Figma.
-|    Mobile   |    Tablet/ Desktop   | 
+|    Mobile   |    Tablet / Desktop   | 
 |    :----:    |     :----:   |   
 |[Breaktasty](https://www.figma.com/file/Zpsh41nfyS4l6gvxwEPGdM/MS3-BREAKTASTY.?node-id=2%3A681)|[Breaktasty](https://www.figma.com/file/Zpsh41nfyS4l6gvxwEPGdM/MS3-BREAKTASTY.?node-id=0%3A1) | 
 
@@ -150,7 +153,7 @@ Click on the links below to see the mockups in Figma.
 - Simple navigation throughout the website by using the navigation bar. 
 - Showing the recipes .simple and clearly
 
-#### 2.General 
+#### 2. General 
 - The index page shows an introduction in the shape of a header and introduction text. And the page shows a couple of new recipes. 
 - There are links to the social media platforms at the top and bottom of the website. 
 - People can sign up for the newsletter. 
@@ -188,7 +191,7 @@ Click on the links below to see the mockups in Figma.
     - CSS3 provides the style of the HTML5 elements.
 - [jQuery](https://jquery.com/)
     - jQuery used as the JavaScript functionality.
-- [Python](https://www.python.org/
+- [Python](https://www.python.org/)
     - Python provides the backend of the project.
 
 #### Frameworks, libraries & Other
@@ -202,7 +205,7 @@ Click on the links below to see the mockups in Figma.
     - Google Fonts is used to provide the font roboto for all the text that is used in the project. 
 - [Figma](https://www.figma.com/)
     - Figma is used to create the mockup designs for the project.
-- [Materialize](https://flask.palletsprojects.com/en/1.1.x/)
+- [Materialize](https://materializecss.com/)
     - Materialize is used for the design framework.
 - [MobgoDB](https://www.mongodb.com/1)
     - MongoDB is the fully managed cloud database service used for the project.
@@ -238,24 +241,63 @@ The testing process can be found [here](TESTING.md).
 
 <h1>5. Deployment</h1>
 
-#### Deployment of my project 
-This project is hosted in GitHub pages, to make my project visible to others. 
+#### Requirements 
+- Python3 
+- Github account 
+- MongoDB account 
+- Heroku account
 
-The project is deployed via the following steps:
-1. Log in to GitHub and go to the repository.
-2. At the top of the repository, locate the **Settings** button and click on it. 
-3. On the Settings page, scroll down to the **GitHub Pages**  section.
-4. Select **Master Branche** by the source section. 
-5. The page refreshes automatically. 
-6. Scroll down to the GitHub Page section and the link of the website is standing in the green bar.
-
-#### Clone my project 
+#### Clone the project 
 To make a local clone and deploy this project in your GitHub Desktop, follow the following steps. 
-
-To clone this project from GitHub: 
 1. Log in to GitHub and go to the repository. 
 2. Click on the green button with the text **“Code”.**
 3. Click on **“Open with GitHub Desktop”** and follow the prompts in the GitHub Desktop Application or follow the instructions from **[this link](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)** to see how to clone the repository in other ways. 
+
+#### Working with the local copy
+1. Install all the requirements: Go to the workspace of your local copy. In the terminal window of your IDE type: **pip3 install -r requirements.txt**.
+2. Create a database in MongoDB  
+    - Signup or login to your MongoDB account.
+    - Create a cluster and a database.
+    - Create four collections in the db: **categories, recipes, subscribers, users.**
+    - Add string values for the collections. See <a href="#ux-architecture">my Information architecture</a> how the database is set up for this project.
+3. Create the environment variables 
+    - Create a .gitignore file in the root directory of the project.
+    - Add the env.py file in the .gitignore.
+    - Create the file env.py. This  will contain all the envornment variables.
+    ```
+    Import os
+    os.environ.setdefault("IP", "Added by developer")
+    os.environ.setdefault("PORT", "Added by developer")
+    os.environ.setdefault("SECRET_KEY", "Added by developer")
+    os.environ.setdefault("MONGO_URI", "Added by developer")
+    os.environ.setdefault("MONGO_DBNAME", "Added by developer")
+    ```
+4. Run the app: Open your terminal window in your IDE. Type python3 app.py and run the app.
+
+#### Heroky Deployment  
+1. Set up local workspace for Heroku 
+    - In terminal window of your IDE type: **pip3 freeze -- local > requirements.txt.** (The file is needed for Heroku to know which filed to install.)
+    - In termial window of your IDE type: **python app.py > Procfile** (The file is needed for Heroku to know which file is needed as entry point.)
+2. Set up Heroku: create a Heroku account and create a new app and select your region. 
+3. Deployment method 'Github'
+    - Click on the **Connect to GitHub** section in the deploy tab in Heroku. 
+        - Search your repository to connect with it.
+        - When your repository appears click on **connect** to connect your repository with the Heroku. 
+    - Go to the settings app in Heroku and go to **Config Vars**. Click on **Reveal Config Vars**.
+        - Enter the variables contained in your env.py file. it is about: **IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME**
+4. Push the requirements.txt and Procfile to repository. 
+     ```
+    $ git add requirements.txt
+    $ git commit -m "Add requirements.txt"
+
+    $ git add Procfile 
+    $ git commit -m "Add Procfile"
+    ```
+5. Automatic deployment: Go to the deploy tab in Heroku and scroll down to **Aotmatic deployments**. Click on **Enable Automatic Deploys**. By **Manual deploy** click on **Deploy Branch**.
+
+Heroku will receive the code from Github and host the app using the required packages. 
+Click on **Open app** in the right corner of your Heroku account. The app wil open and the live link is available from the address bar. 
+
 
 <span id="credits"></span>
 
@@ -274,7 +316,7 @@ To clone this project from GitHub:
 
 
 #### Media 
-- Header image - Pexels by 
+- Header image - [Elle Hughes](https://www.pexels.com/nl-nl/@elletakesphotos).
 - Green smoothie - Pexels by [Alisha Mishra](https://www.pexels.com/nl-nl/@alisha-mishra-579430).
 - Avocado smoothie - Pexels by  [Emilia Czarnota](https://www.pexels.com/nl-nl/@emilia-czarnota-3807932)
 - Healthy oatmeal - Pexels by  [Keegan Evans](https://www.pexels.com/nl-nl/@keegan-evans-10986)
@@ -294,7 +336,6 @@ To clone this project from GitHub:
 
 <h1>7. Acknowledge</h1>
 
-#### Acknowledgement 
 Thanks to the following people and organizations who helped or inspired me for the project:  
 - The support and guidance of my mentor Precious Ijege. 
 - The lessons and knowledge of [Code Institute.](https://codeinstitute.net/)
