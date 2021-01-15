@@ -72,7 +72,7 @@ All the goals of first-time visitors also apply for site members. There are addi
 3. As a site member, I want to delete my recipes, so I can remove the recipe when it is no longer relevant. 
 4. As a site member, I want to login to my profile, so I have access to my recipes. 
 5. As a site member, I want to logout to my profile, so I can logout from my profile. 
-6. As a site member, I want to be able to delete my profile.
+
 
 **Admin goals:**
 
@@ -115,6 +115,7 @@ The images I used for this project came from [Pexels](https://www.pexels.com/). 
         - The image URL must start with http:// or https://.
         - The number of serves and prepping time has to be numbered.
     - By the email subscriber, the email must be in the following order: characters followed by a @ symbol, followed by more characters and then a “.”.
+    - A recipe or category can't be deleted by just one click. If someone clicks on the delete button, there wil be a pop up with a confirmation if someone is sure to delete the recipe or category.
 
 - #### Interactive design 
 
@@ -179,6 +180,7 @@ Click on the links below to see the mockups in Figma.
 - On the overview of recipes multiple pages with all recipes, instead of a long list of all recipes. 
 - For an image of the recipe, users have to fill in the image URL. For the future, there also can be an option to upload the image. 
 - Add form validation on the backend.
+- The user can delete their profile.
 
 <span id="technologies"></span>
 
