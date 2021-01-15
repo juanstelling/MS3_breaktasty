@@ -12,7 +12,7 @@
         <form class="col s12 m8 offset-m2" id="form_signin" method="POST" action="{{ url_for('signup') }}">
             <!-- Username -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s11">
                     <input id="username" name="username" type="text" minlength="5" maxlength="20" pattern="^[A-Za-z0-9_]{5,20}$" class="validate" required>
                     <label for="username">username</label>
                     <span class="helper-text" data-error="5-20 characters, only letters and numbers" data-success="right">5-20 characters, only letters and numbers</span>
@@ -20,7 +20,7 @@
             </div>
             <!--Password -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s11">
                     <input id="password" name="password" type="password" minlength="5" maxlength="20" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}$" class="validate" required>
                     <label for="password">Password</label>
                     <span class="helper-text" data-error="Must contain at least one number, and one uppercase and lowercase letter, and between 5-20 characters" data-success="right">Must contain at least one number, and one uppercase and lowercase letter, and between 5-20 characters</span>
@@ -28,10 +28,13 @@
             </div>
             <!-- Terms and conditions -->
             <div class="row">
-                <label>
-                    <input type="checkbox" required>
-                    <span>By registering I agree to the terms and conditions</span>
-                </label>
+                <div class="col s11">
+                    <label>
+                        <input type="checkbox" required>
+                        <span>By registering I agree to the terms and conditions</span>
+                    </label>
+                </div>
+               
             </div>
             <!-- Submit button -->
             <div class="row">
