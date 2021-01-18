@@ -250,7 +250,7 @@ The testing process can be found [here](TESTING.md).
 - Heroku account
 
 #### Clone the project 
-To make a local clone and deploy this project in your GitHub Desktop, follow the following steps. 
+To make a local clone, follow the following steps. 
 1. Log in to GitHub and go to the repository. 
 2. Click on the green button with the text **“Code”.**
 3. Click on **“Open with GitHub Desktop”** and follow the prompts in the GitHub Desktop Application or follow the instructions from **[this link](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)** to see how to clone the repository in other ways. 
@@ -276,7 +276,7 @@ To make a local clone and deploy this project in your GitHub Desktop, follow the
     ```
 4. Run the app: Open your terminal window in your IDE. Type python3 app.py and run the app.
 
-#### Heroky Deployment  
+#### Heroku Deployment  
 1. Set up local workspace for Heroku 
     - In terminal window of your IDE type: **pip3 freeze -- local > requirements.txt.** (The file is needed for Heroku to know which filed to install.)
     - In termial window of your IDE type: **python app.py > Procfile** (The file is needed for Heroku to know which file is needed as entry point.)
