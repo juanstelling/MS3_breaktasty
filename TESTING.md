@@ -123,8 +123,8 @@
 **Answer 2 + 3 + 4:** 
 The validation of all input fields is done with front end validation and by using the validate functionality from materialize. 
 
-- The input fields between a number  of characters. This is done by setting a minlength and maxlength. 
-- The input fields habe a number of criteria. These criterias where set by the pattern attribute.
+- The input fields between a number  of characters. This is done minlength, maxlength and the pattern attribute. 
+- The input fields have a number of criteria. These criterias where set by the pattern attribute.
 - The html type attribute is used to set for example numbers, text, email or url.
 - The required functionality is used to make the input fields required. 
 
@@ -153,7 +153,7 @@ See below the input fields for front end validation
 
 5. A recipe or category can't be deleted by just one click. If someone clicks on the delete button, there wil be a pop up with a confirmation if someone is sure to delete the recipe or category.
 
-**Answer 5:**: If someone clicks on the delete button, a modal (from materialize) will pop up with the text: Are you sure you want to delete (recipe name/ categoryname). If the user clicks again on delete the recipe or category will be deleted from the database.
+**Answer 5:** If someone clicks on the delete button, a modal (from materialize) will pop up with the text: Are you sure you want to delete (recipe name/ categoryname). If the user clicks again on delete the recipe or category will be deleted from the database.
 
 --- 
 
