@@ -13,7 +13,7 @@
             <!-- Recipe name -->
             <div class="row">
                 <div class="input-field col s11">
-                    <input id="recipe_name" name="recipe_name" type="text" pattern="^[A-Za-z0-9\s]{1,20}$" class="validate" required>
+                    <input id="recipe_name" name="recipe_name" type="text" pattern="^[^\s][A-Za-z0-9\s]{1,20}$" class="validate" required>
                     <label for="recipe_name">Recipe name</label>
                 </div>
             </div>
