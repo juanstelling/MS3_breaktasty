@@ -23,6 +23,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     recipes = list(mongo.db.recipes.find())
+    # Shows the first three recipes for mobile
     mob_recipes = [recipes[0], recipes[1], recipes[3]]
     return render_template(
         "index.html", recipes=recipes, mob_recipes=mob_recipes)
@@ -40,6 +41,7 @@ def signup():
             flash("Username already exists")
             return redirect(url_for("signup"))
 
+        # sign up new user in db
         signup = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
@@ -149,7 +151,7 @@ def recipe(recipe_id):
     # Find recipe on the basis of id
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
-    # recipe id don't exist > 404 error
+    # recipe id don't exist, show 404 error
     if not recipe:
         return render_template("error_handlers/404.html")
 
