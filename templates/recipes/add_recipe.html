@@ -40,7 +40,7 @@
             <!-- Serves -->
             <div class="row">
                 <div class="input-field col s11">
-                    <input id="serves" name="serves" type="number" class="validate" required>
+                    <input id="serves" name="serves" type="text"  pattern="^[1-9][0-9]*$" class="validate" required>
                     <label for="serves">Number of serves</label>
                     <span class="helper-text" data-error="enter valid number" data-success="right">For example: 2</span>
                 </div>
@@ -48,7 +48,7 @@
             <!-- Preping time  -->
             <div class="row">
                 <div class="input-field col s11">
-                    <input id="prep_time" name="prep_time" type="number" class="validate" required>
+                    <input id="prep_time" name="prep_time" type="text" pattern="^[1-9][0-9]*$" class="validate" required>
                     <label for="prep_time">Prepping time (in minutes)</label>
                     <span class="helper-text" data-error="enter valid number" data-success="right">For examle: 30</span>
                 </div>
