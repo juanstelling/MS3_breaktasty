@@ -12,7 +12,6 @@ Breaktasty is designed to inspire people for breakfast ideas. Everyone is welcom
 
 This project is the third out of four Milestone Projects in the Full Stack Web Development Program I am attending at The Code Institute.
 
-**[View the live project here.](https://ms3-breaktasty.herokuapp.com/)**
 
 ---
 
